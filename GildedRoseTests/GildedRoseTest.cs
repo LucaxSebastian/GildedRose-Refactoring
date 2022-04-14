@@ -13,7 +13,12 @@ namespace GildedRoseTests
             };
             
             GildedRose app = new GildedRose(Items);
-            app.UpdateQuality();
+            app.UpdadeDecreaseQuality();
+            app.UpdateAgedBrieQuality();
+            app.UpdateSulfurasQuality();
+            app.UpdateBackstageQuality();
+            app.UpdateConjuredQuality();
+            app.UpdateQualityNegative();  
         }
     }
 }

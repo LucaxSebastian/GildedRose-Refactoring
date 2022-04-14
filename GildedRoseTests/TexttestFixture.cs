@@ -57,7 +57,12 @@ namespace GildedRoseTests
                     System.Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
                 }
                 Console.WriteLine("");
-                app.UpdateQuality();
+                app.UpdadeDecreaseQuality();
+                app.UpdateAgedBrieQuality();
+                app.UpdateSulfurasQuality();
+                app.UpdateBackstageQuality();
+                app.UpdateConjuredQuality();
+                app.UpdateQualityNegative();
             }
         }
     }
