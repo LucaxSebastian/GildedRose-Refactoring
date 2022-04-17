@@ -10,22 +10,30 @@ namespace GildedRoseKata
             this.Items = Items;
         }
 
+        public void UpdateQuality()
+        {
+            UpdadeDecreaseQuality();
+            UpdateAgedBrieQuality();
+            UpdateSulfurasQuality();
+            UpdateBackstageQuality();
+            UpdateConjuredQuality();
+            UpdateQualityNegative();
+        }
+
         public void UpdadeDecreaseQuality()
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
+                if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert" 
+                    && Items[i].Name != "Sulfuras, Hand of Ragnaros")
                 {
-                    if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
+                    if (Items[i].SellIn > 0)
                     {
-                        if (Items[i].SellIn > 0)
-                        {
-                            Items[i].Quality -= 1;
-                        }
-                        else
-                        {
-                            Items[i].Quality -= 2;
-                        }
+                        Items[i].Quality -= 1;
+                    }
+                    else
+                    {
+                        Items[i].Quality -= 2;
                     }
                 }
             }
@@ -35,16 +43,13 @@ namespace GildedRoseKata
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                if (Items[i].Name == "Aged Brie")
+                if (Items[i].Name == "Aged Brie" && Items[i].SellIn > 0)
                 {
-                    if (Items[i].SellIn > 0)
-                    {
-                        Items[i].Quality += 1;
-                    }
-                    else
-                    {
-                        Items[i].Quality -= 2;
-                    }
+                    Items[i].Quality += 1;
+                }
+                else if (Items[i].Name == "Aged Brie" && Items[i].SellIn <= 0)
+                {
+                    Items[i].Quality -= 2;
                 }
             }
         }
