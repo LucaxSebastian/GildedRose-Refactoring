@@ -14,13 +14,13 @@ namespace GildedRoseKata
         {
             UpdadeDecreaseQuality();
             UpdateAgedBrieQuality();
-            UpdateSulfurasQuality();
             UpdateBackstageQuality();
             UpdateConjuredQuality();
+            UpdateSulfurasQuality();
             UpdateQualityNegative();
         }
 
-        public void UpdadeDecreaseQuality()
+        private void UpdadeDecreaseQuality()
         {
             for (var i = 0; i < Items.Count; i++)
             {
@@ -39,7 +39,7 @@ namespace GildedRoseKata
             }
         }
 
-        public void UpdateAgedBrieQuality()
+        private void UpdateAgedBrieQuality()
         {
             for (var i = 0; i < Items.Count; i++)
             {
@@ -54,7 +54,7 @@ namespace GildedRoseKata
             }
         }
 
-        public void UpdateSulfurasQuality()
+        private void UpdateSulfurasQuality()
         {
             for (var i = 0; i < Items.Count; i++)
             {
@@ -75,7 +75,8 @@ namespace GildedRoseKata
                 }
             }
         }
-        public void UpdateBackstageQuality()
+
+        private void UpdateBackstageQuality()
         {
             for (var i = 0; i < Items.Count; i++)
             {
@@ -85,26 +86,23 @@ namespace GildedRoseKata
                     {
                         Items[i].Quality += 1;
                     }
+                    else if (Items[i].SellIn > 5)
+                    {
+                        Items[i].Quality += 2;
+                    }
+                    else if (Items[i].SellIn > 0)
+                    {
+                        Items[i].Quality += 3;
+                    }
                     else
-                    { 
-                        if (Items[i].SellIn <= 10 && Items[i].SellIn > 5)
-                        {
-                            Items[i].Quality += 2;
-                        }
-                        if (Items[i].SellIn <= 5 && Items[i].SellIn > 0)
-                        {
-                            Items[i].Quality += 3;
-                        }
-                        if (Items[i].SellIn <= 0)
-                        {
-                            Items[i].Quality = 0;
-                        }
+                    {
+                        Items[i].Quality = 0;
                     }
                 }
             }
         }
 
-        public void UpdateConjuredQuality()
+        private void UpdateConjuredQuality()
         {
             for (var i = 0; i < Items.Count; i++)
             {
@@ -114,7 +112,8 @@ namespace GildedRoseKata
                 }
             }
         }
-        public void UpdateQualityNegative()
+
+        private void UpdateQualityNegative()
         {
             for (var i = 0; i < Items.Count; i++)
             {
